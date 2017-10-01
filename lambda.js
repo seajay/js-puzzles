@@ -24,6 +24,14 @@ function clientCallback(err, data){
 
 
 switch (event.action){
+	case "scan":
+		params = {
+			"TableName": table,
+			"AttributesToGet", ["title"]
+		};
+		console.log("Scanning titles");
+		docClient.get(params, clientCallback);
+		break;
     case "get":
         params = {
             "TableName": table,
